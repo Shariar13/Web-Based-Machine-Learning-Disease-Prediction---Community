@@ -1,0 +1,287 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+  .doctor {
+    border: 1px solid rgb(229, 229, 229);
+    width: 50%;
+    height: 700px;
+    overflow: scroll;
+  }
+
+  .doctor_profile {
+    width: 50%;
+    height: 700px;
+    border: 1px solid rgb(229, 229, 229);
+  }
+
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  td,
+  th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+  .card {
+    width: 99%;
+    height: 229px;
+    overflow: hidden;
+    text-align: left;
+  }
+
+  .doctor_fra {
+    width: 85%;
+    margin: auto;
+    text-align: center;
+    display: flex;
+  }
+
+  .view_profile {
+    display: none;
+  }
+
+  .view_profile_1 {
+    display: block;
+  }
+
+  @media screen and (max-width: 479px) {
+    .doctor {
+      width: 97%;
+      margin: auto;
+
+
+
+    }
+
+    .doctor_profile {
+      display: none;
+    }
+
+    .card {
+      height: auto;
+      width: 100%;
+    }
+
+    .about {
+      display: none;
+    }
+
+    .doctor_fra {
+      width: 100%;
+    }
+
+    .view_profile {
+      display: block;
+    }
+
+    .view_profile_1 {
+      display: none;
+    }
+
+    .modal-body {
+      height: 300px;
+      overflow: scroll;
+    }
+  }
+</style>
+
+
+<div class="doctor_fra">
+  <div class="doctor">
+    <hr>
+    <h5 class="find_your_doctor"><b>Find Your Doctor</b></h5>
+    <hr>
+
+    <strike>
+      {% if object_list %}
+      {% for doctor in object_list %}
+    </strike>
+
+
+
+
+
+    <div class="card mb-3">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img id="show_image{{ doctor.id }}" src="{{ doctor.photo.url }}" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <p class="card-title" id="show_name{{ doctor.id }}"><b>{{ doctor.name }}</b></p>
+            <p class="card-text"><small class="text-muted" id="show_information{{ doctor.id }}">{{ doctor.information }}</small></p>
+            <p class="card-text"><small class="text-muted" id="show_location{{ doctor.id }}">{{ doctor.location }}</small></p>
+            <p style="display: none;" class="card-title" id="show_phone{{ doctor.id }}">{{ doctor.phone }}</p>
+            <p style="display: none;" class="card-title" id="show_email{{ doctor.id }}">{{ doctor.email }}</p>
+
+            <button class="view_profile_1" onclick="doctor_profile_view('{{ doctor.id }}')">View Profile</button>
+            <button class="view_profile" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+              onclick="doctor_profile_view('{{ doctor.id }}')">
+              View Profile
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <strike>{% endfor %} {% endif %}</strike>
+
+
+
+
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+      aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="doctor_profile_on_mobile">
+              <hr>
+              <h5><b>Doctor Profile</b></h5>
+              <hr>
+              <img id="doctor_image_1" src="" width="100px" height="100px" alt="">
+
+
+              <table>
+                <tr>
+                  <th>Title</th>
+                  <th>Information</th>
+                </tr>
+                <tr>
+                  <td>Name</td>
+                  <td id="doctor_name_1"></td>
+                </tr>
+                <tr>
+                  <td>Phone</td>
+                  <td id="doctor_phone_1"></td>
+                </tr>
+                <tr>
+                  <td>Email</td>
+                  <td id="doctor_email_1"></td>
+                </tr>
+                <tr>
+                  <td>Location</td>
+                  <td id="doctor_location_1"></td>
+                </tr>
+                <tr>
+                  <td>Information</td>
+                  <td id="doctor_information_1"></td>
+                </tr>
+              </table>
+
+
+
+
+
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+
+  <div class="doctor_profile">
+    <hr>
+    <h5><b>Doctor Profile</b></h5>
+    <hr>
+    <img id="doctor_image" src="" width="100px" height="100px" alt="">
+
+
+
+
+
+
+    <table>
+      <tr>
+        <th>Title</th>
+        <th>Information</th>
+      </tr>
+      <tr>
+        <td>Name</td>
+        <td id="doctor_name"></td>
+      </tr>
+      <tr>
+        <td>Phone</td>
+        <td id="doctor_phone"></td>
+      </tr>
+      <tr>
+        <td>Email</td>
+        <td id="doctor_email"></td>
+      </tr>
+      <tr>
+        <td>Location</td>
+        <td id="doctor_location"></td>
+      </tr>
+      <tr>
+        <td>Information</td>
+        <td id="doctor_information"></td>
+      </tr>
+    </table>
+
+
+
+
+
+  </div>
+
+
+
+
+
+
+
+</div>
+
+<script>
+  function doctor_profile_view(id) {
+    var name = document.getElementById("show_name" + id).innerHTML;
+    var information = document.getElementById("show_information" + id).innerHTML;
+    var location = document.getElementById("show_location" + id).innerHTML;
+    var phone = document.getElementById("show_phone" + id).innerHTML;
+    var email = document.getElementById("show_email" + id).innerHTML;
+    var image = document.getElementById("show_image" + id).src;
+
+
+    document.getElementById("doctor_name").innerHTML = name;
+    document.getElementById("doctor_information").innerHTML = information;
+    document.getElementById("doctor_location").innerHTML = location;
+    document.getElementById("doctor_phone").innerHTML = phone;
+    document.getElementById("doctor_email").innerHTML = email;
+    document.getElementById("doctor_image").src = image;
+
+    document.getElementById("doctor_name_1").innerHTML = name;
+    document.getElementById("doctor_information_1").innerHTML = information;
+    document.getElementById("doctor_location_1").innerHTML = location;
+    document.getElementById("doctor_phone_1").innerHTML = phone;
+    document.getElementById("doctor_email_1").innerHTML = email;
+    document.getElementById("doctor_image_1").src = image;
+
+  }
+</script>
+
+
+{% endblock %}

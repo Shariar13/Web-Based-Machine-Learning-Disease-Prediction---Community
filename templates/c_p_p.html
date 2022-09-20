@@ -1,0 +1,106 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+
+
+<div style="text-align: center;height: 500px;">
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+    {% for edit_profile in object_list %}
+
+    {% if edit_profile.username == user.username %}
+    <style>
+        .profile_form {
+            display: none;
+        }
+
+        .update_form {
+            display: block;
+        }
+
+    </style>
+    {% elif edit_profile.username != user.username %}
+    <style>
+        .update_form {
+            display: none;
+        }
+
+        .profile_form {
+            display: block;
+        }
+    </style>
+
+    {% endif %}
+    {% endfor %}
+
+
+    <div class="profile_form">
+
+
+        <form action="{% url 'profile_picture_form' %}" method="POST" id="widget-form" class="widget-post__form"
+            name="form" aria-label="post widget" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <input name="username" type="hidden" value="{{ user.username }}">
+            <input name="name" type="hidden" value="{{ user.get_full_name }}">
+
+            <div class="post-actions__attachments">
+                <button type="button" class="btn post-actions__upload attachments--btn">
+                    <label style="color: rgb(64, 11, 44);" for="upload-image" class="post-actions__label">
+                        <i class="fa fa-upload" aria-hidden="true"></i>
+                        Change Profile Picture
+                    </label>
+                </button>
+
+
+                <input name="photo" type="file" id="upload-image" accept="image/*" multiple>
+                <button type="submit"
+                    style="background-color: rgb(64, 11, 44);color: white;border-radius: 5px;padding: 5px;"
+                    data-bs-dismiss="modal">Upload</button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+
+
+{% for edit_profile in object_list %}
+
+{% if edit_profile.username == user.username %}
+    
+
+    
+
+    
+    <div class="update_form">
+        <div style="width: 199px;height: auto;margin: auto;">
+            <img src="{{ edit_profile.photo.url }}" alt="" width="100%">
+        </div>
+        
+
+
+        <a href="{% url 'edit_profile_picture' edit_profile.pk %}"><button style="background-color: rgb(64, 11, 44);color: white;border-radius: 5px;padding: 5px;"
+            data-bs-dismiss="modal">Update Profile Picture</button></a>
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
+
+
+
+
+
+
+
+{% endblock content %}

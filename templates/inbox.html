@@ -1,0 +1,72 @@
+{% extends 'main.html' %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+
+<style>
+    .inbox {
+        width: 50%;
+        margin: auto;
+        border: 1px solid rgb(229, 229, 229);
+        padding: 29px;
+    }
+
+    a {
+        text-decoration: none;
+        color: rgb(64, 11, 44);
+    }
+
+    .chat_img {
+        border-radius: 50%;
+        margin-right: 29px;
+    }
+
+    @media screen and (max-width: 479px) {
+        .inbox {
+            width: 97%;
+            margin: auto;
+            border: 1px solid rgb(229, 229, 229);
+            padding: 0px;
+        }
+
+        .chat_img {
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+
+        .about {
+            display: none;
+        }
+    }
+</style>
+
+
+<div class="inbox">
+    <h1>Message</h1>
+    <hr>
+
+
+    {% for chat in user_message reversed %}
+
+    {% if chat.username != user.username and chat.chat_user_name == user.username %}
+
+    {% for edit_profile in profile_picture %}
+
+    {% if chat.username == edit_profile.username or chat.chat_username == edit_profile.username %}
+
+
+    <a href="{% url 'user_chat' edit_profile.pk %}"><img class="chat_img" src="{{ edit_profile.photo.url }}"
+            width="50px" height="50px" alt="">{{ chat.name }} <span class = "text-muted"><small>{{ chat.date|naturaltime }}</small></span></a>
+
+    {% endif %}
+
+    {% endfor %}
+    <hr>
+    {% endif %}
+
+    {% endfor %}
+
+</div>
+
+
+{% endblock content %}

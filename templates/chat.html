@@ -1,0 +1,181 @@
+{% extends 'main.html' %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+
+
+<title>Chat</title>
+
+<style>
+    body {
+        background-color: rgb(228, 228, 228);
+    }
+
+    .message::-webkit-scrollbar {
+        display: none;
+    }
+
+    .message {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .message {
+        width: 93%;
+        height: 500px;
+        margin: auto;
+        margin-top: 19px;
+        overflow: scroll;
+    }
+
+    .image_div {
+        margin-left: 73px;
+        width: 500px;
+    }
+
+    .image_div>img {
+        width: 500px;
+        border-radius: 19px;
+        clear: both;
+        float: left;
+    }
+
+    .text_div {
+        float: left;
+        margin-left: 29px;
+        width: 700px;
+    }
+
+    .text_div_2 {
+        float: left;
+        margin-right: 73px;
+    }
+
+    .text_style {
+        font-family: 'Winter', sans-serif;
+        font-size: 73px;
+        font-weight: lighter;
+    }
+
+    .button_style {
+        background-color: black;
+        border-radius: 19px;
+        color: white;
+        padding: 19px;
+        border: none;
+        font-weight: lighter;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        width: 473px;
+        text-align: left;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        transition: 0.3s ease;
+
+    }
+
+    .button_style:hover {
+        width: 573px;
+        animation: chan-sh 6s ease infinite;
+        transform: translateX(0);
+    }
+
+    .message_bor {
+        width: 500px;
+        height: 700px;
+        margin: auto;
+        background-color: white;
+        border-radius: 19px;
+        margin-top: 29px;border: 1px solid rgb(64, 11, 44);
+    }
+
+    @import url('http://fonts.cdnfonts.com/css/romantic');
+    @import url('http://fonts.cdnfonts.com/css/valeerie-morrie');
+
+
+
+    @media screen and (max-width: 479px) {
+
+
+        .message_bor {
+            width: 97%;
+        }
+        .about {
+            display: none;
+        }
+    }
+</style>
+</head>
+
+
+
+
+
+<div class="message_bor">
+
+    <div style="background-color: rgb(64, 11, 44);color: white;border-radius: 19px;">
+        {% if edit_profile.photo %}
+        <img src="{{ edit_profile.photo.url }}" height="73px" weight="73px" style="border-radius: 19px;"> <b>{{ edit_profile.name }}</b>
+        {% else %}
+        <img src="{% static 'user.jpg' %}" height="73px" weight="73px" style="border-radius: 50%;"> <b>{{ edit_profile.name }}</b>
+
+        {% endif %}
+    </div>
+
+
+
+
+
+    <div class="message">
+        {% for chat in chat_list %}
+
+        {% if chat.username == user.username and chat.chat_user_name == edit_profile.username or edit_profile.username == chat.username and chat.chat_user_name == user.username %}
+
+
+
+
+        {% if chat.username == user.username %}
+        <div
+            style="width: auto;height:auto;background-color: rgb(199, 199, 199);color: black;border-radius: 5px;float: right;padding-left: 5px;padding-right: 5px;padding-top: 5px;padding-bottom: 5px;">
+            {{ chat.message }}
+
+        </div>
+        <span style="float: right;font-size: 13px;" class="text-muted">{{ chat.date|naturaltime }} - </span>
+
+
+        {% else %}
+        <div
+            style="width: auto;height:auto;margin: auto;background-color: rgb(64, 11, 44);color: white;border-radius: 5px;float: left;padding-left: 5px;padding-right: 5px;padding-top: 5px;padding-bottom: 5px;">
+            {{ chat.message }}
+
+        </div>
+        <span style="float: left;font-size: 13px;" class="text-muted"> - {{ chat.date|naturaltime }} </span>
+        {% endif %}
+
+
+        <br>
+        <br>
+        {% endif %}
+        {% endfor %}
+    </div>
+
+
+    <div style="text-align: center;margin-top: 19px;">
+        <form action="{% url 'chat_form' %}" method="POST">
+            {% csrf_token %}
+            <input name="username" type="hidden" value="{{ user.username }}">
+            <input name="name" type="hidden" value="{{ user.get_full_name }}">
+            <input name="chat_user_name" type="hidden" value="{{ edit_profile.username }}">
+            <input name="chat_name" type="hidden" value="{{ edit_profile.name }}">
+            <input name="message"
+                style="width: 73%;height: 73px;border-radius: 19px;border: 1px solid rgb(199, 199, 199);" type="text">
+            <input style="width: 19%;background-color: rgb(64, 11, 44);color: white;border: none;border-radius: 19px;"
+                type="submit" value="Send">
+        </form>
+    </div>
+
+
+</div>
+
+
+
+
+{% endblock content %}

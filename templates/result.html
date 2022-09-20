@@ -1,0 +1,102 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+    .doctor {
+        border: 1px solid rgb(229, 229, 229);
+        width: 100%;
+        height: 700px;
+        margin: auto;
+    }
+</style>
+
+
+<div style="width: 85%;margin: auto;text-align: center;">
+
+
+    <br>
+    {% if result == "You Have Alzheimer" %}
+    <p style = "background-color: rgb(64, 11, 44);color: white;padding: 5px;border-radius: 5px;width: 199px;margin: auto;"><b>Result : Positive</b></p>
+    <br>
+    {% else %}
+    <p style = "background-color: rgb(64, 11, 44);color: white;padding: 5px;border-radius: 5px;width: 199px;margin: auto;"><b>Result : Negative</b></p>
+    <br>
+    {% endif %}
+    <h5><b>{{ result }}</b></h5>
+    <br>
+    {% if result == "You Have Alzheimer" %}
+    <p>Hello ! {{ user.first_name }} it is a matter of sorrow that you have got <b>Alzheimer</b>. It is a very common
+        problem now a days.
+        But you don't have worry. Because now you can train your brain and reduce your disease.</p>
+    {% else %}
+    <p>Hello ! {{ user.first_name }} it is a matter of joy that you don't have got <b>Alzheimer</b>. Your brain is very
+        sharp. You can train your
+        brain and increase the power of your brain with us.</p>
+    {% endif %}
+
+
+    <hr>
+
+    <h5><b>Here we have suggest some game for you</b></h5>
+    <br>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+            <div class="card h-100">
+                <img src="{% static 'img/1.jpg' %}" class="card-img-top" alt="..." width="100%" height="229px">
+                <div class="card-body">
+                    <h5 class="card-title"><b>Find Digit</b></h5>
+                    <p class="card-text">In this game you can see some digit. You have to find the hidden digit. It seems very interesting.</p>
+                    <br>
+                    <br>
+                    <a href="{% url 'pattern' %}"><button>Click To Play</button></a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+                <img src="{% static 'img/2.jpg' %}" class="card-img-top" alt="..." width="100%" height="229px">
+                <div class="card-body">
+                    <h5 class="card-title"><b>Easy Puzzle</b></h5>
+                    <p class="card-text">In this game you have to ans some interesting question. For every correct ans you will get 1 marks. If you
+                        earn 10 marks then your mission will complete.
+                    </p>
+                    <br>
+                    <button>Click To Play</button>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+                <img src="{% static 'img/3.jpg' %}" class="card-img-top" alt="..." width="100%" height="229px">
+                <div class="card-body">
+                    <h5 class="card-title"><b>Interesting IQ</b></h5>
+                    <p class="card-text">In this game we take a IQ test from you. You have to think intelligence. After that game you
+                        will be able to see your IQ rating.
+                    </p>
+                    <br>
+                    <button>Click To Play</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <hr>
+    <a href="{% url 'find_doctor' %}"><h5><b>Click Here Find Your Doctor</b></h5></a>
+    <hr>
+
+
+    <br>
+
+
+
+
+
+
+</div>
+
+
+{% endblock %}

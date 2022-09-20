@@ -1,0 +1,50 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+
+
+
+<div style="text-align: center;height: 500px;">
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+
+    <div style = "width: 299px;margin: auto;" class="profile_form">
+
+
+        <form action="" method="POST" id="widget-form" class="widget-post__form"
+            name="form" aria-label="post widget" enctype="multipart/form-data">
+            {% csrf_token %}
+
+
+            {{ form }}
+            <br>
+                <button type="submit"
+                    style="background-color: rgb(64, 11, 44);color: white;border-radius: 5px;padding: 5px;"
+                    data-bs-dismiss="modal">Upload</button>
+
+          
+
+        </form>
+
+    </div>
+
+
+
+</div>
+
+
+
+
+
+
+
+{% endblock content %}

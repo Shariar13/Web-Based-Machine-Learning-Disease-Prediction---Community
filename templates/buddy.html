@@ -1,0 +1,67 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+
+<style>
+  .card {
+    display: inline-block;
+    margin: 10px;
+    text-align: left;
+    width: 20%;
+  }
+
+  footer {
+    clear: both;
+  }
+
+  .main {
+    text-align: center;
+    width: 100%;
+    border: 1px solid black;
+  }
+
+  .buddy_image {
+    height: 329px;
+  }
+
+  @media screen and (max-width: 449px) {
+
+    .card {
+      width: 97%;
+      margin: 1%;
+      text-align: left;
+    }
+
+    .about {
+      display: none;
+    }
+
+    .buddy_image {
+      height: auto;
+    }
+  }
+</style>
+
+
+<div class="main">
+
+  {% for edit_profile in object_list %}
+
+
+
+  <div class="card border-secondary mb-3">
+    <div class=""><img class="buddy_image" src="{{ edit_profile.photo.url }}" width="100%" alt="sdfsadf"></div>
+    <div class="card-body text-secondary">
+      <h5 class="card-title"><b>{{ edit_profile.name }}</b></h5>
+      <p class="card-text">Daffodil Smart City, Dhaka, Bangladesh</p>
+      <a href="{% url 'buddy_profile' edit_profile.pk %}"><button
+          style="background-color: rgb(64, 11, 44);color: white;width: 100%;border: none;border-radius: 5px;height: 29px;">View</button></a>
+    </div>
+  </div>
+
+  {% endfor %}
+</div>
+
+
+{% endblock content %}

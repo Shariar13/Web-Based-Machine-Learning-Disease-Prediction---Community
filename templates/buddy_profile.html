@@ -1,0 +1,485 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    .box_shadow {
+        background-image: linear-gradient(to right, #ffffb3, #ffe6e6);
+        height: 39px;
+
+
+    }
+
+
+
+    .image_div {
+        margin-left: 73px;
+        width: 500px;
+    }
+
+    .image_div>img {
+        width: 500px;
+        border-radius: 19px;
+        clear: both;
+        float: left;
+    }
+
+    .text_div {
+        float: left;
+        margin-left: 29px;
+        width: 700px;
+    }
+
+    .text_div_2 {
+        float: left;
+        margin-right: 73px;
+    }
+
+    .text_style {
+        font-family: 'Winter', sans-serif;
+        font-size: 73px;
+        font-weight: lighter;
+    }
+
+    .button_style {
+        background-color: black;
+        border-radius: 19px;
+        color: white;
+        padding: 19px;
+        border: none;
+        font-weight: lighter;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        width: 473px;
+        text-align: left;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        transition: 0.3s ease;
+
+    }
+
+    .button_style:hover {
+        width: 573px;
+        animation: chan-sh 6s ease infinite;
+        transform: translateX(0);
+    }
+
+    @import url('http://fonts.cdnfonts.com/css/romantic');
+    @import url('http://fonts.cdnfonts.com/css/valeerie-morrie');
+
+
+
+    .profile {
+        width: 73%;
+        margin: auto;
+        height: 500px;
+        box-shadow: 0 1px 1px grey;
+        background-color: white;
+        overflow: hidden;
+        border-radius: 5px;
+    }
+
+    .profile_pic {
+        width: 25%;
+        margin: auto;
+        height: 273px;
+
+
+    }
+
+    .profile_pic>img {
+        border-radius: 50%;
+    }
+
+    .button {
+        margin-left: 29px;
+        margin-right: 29px;
+        border: none;
+        border-radius: 5px;
+        background-color: white;
+        color: rgb(255, 0, 234);
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+
+        font-family: sans-serif;
+    }
+
+
+    /* * Post widget * */
+
+    input[type="file"] {
+        display: none;
+    }
+
+    ul {
+        list-style-type: none;
+    }
+
+    .btn {
+        padding: .4em 1em;
+
+        background-color: transparent;
+        color: #6b7270;
+
+        border: none;
+        cursor: pointer;
+    }
+
+    .widget-post {
+        width: 73%;
+        min-height: 100px;
+        height: auto;
+        border-radius: 5px;
+        border: 1px solid #eaeaea;
+        box-shadow: 0 1px 1px grey;
+
+        background-color: #fff;
+
+        margin: auto;
+        overflow: hidden;
+    }
+
+    .widget-post__header {
+        padding: .2em .5em;
+
+        background-color: #eaeaea;
+        color: #3f5563;
+    }
+
+    .widget-post__title {
+        font-size: 18px;
+    }
+
+    .widget-post__content {
+        width: 100%;
+        height: 50%;
+    }
+
+    .widget-post__textarea {
+        width: 100%;
+        height: 100%;
+        padding: .5em;
+
+        border: none;
+        resize: none;
+    }
+
+    .widget-post__textarea:focus {
+        outline: none;
+    }
+
+    .widget-post__options {
+        padding: .5em;
+    }
+
+    .widget-post___input {
+        display: inline-block;
+
+        width: 24%;
+        padding: .2em .5em;
+
+        border: 1px solid #eaeaea;
+        border-radius: 1.5em;
+    }
+
+    .post-actions__label {
+        cursor: pointer;
+    }
+
+    .widget-post__actions {
+        width: 100%;
+        padding: .5em;
+    }
+
+    .post--actions {
+        position: relative;
+        padding: .5em;
+
+        background-color: #f5f5f5;
+        color: #a2a6a7;
+    }
+
+    .post-actions__attachments {
+        display: inline-block;
+        width: 60%;
+    }
+
+    .attachments--btn {
+        background-color: #eaeaea;
+        color: #007582;
+
+        border-radius: 1.5em;
+    }
+
+    .post-actions__widget {
+        display: inline-block;
+        width: 38%;
+        text-align: right;
+    }
+
+    .post-actions__publish {
+        width: 120px;
+
+        background-color: #008391;
+        color: #fff;
+
+        border-radius: 1.5em;
+    }
+
+    .scroller::-webkit-scrollbar {
+        display: none;
+    }
+
+    .is--hidden {
+        display: none;
+    }
+
+    .sr-only {
+        width: 1px;
+        height: 1px;
+
+        clip: rect(1px, 1px, 1px, 1px);
+        -webkit-clip-path: inset(50%);
+        clip-path: inset(50%);
+
+        overflow: hidden;
+        white-space: nowrap;
+
+        position: absolute;
+        top: 0;
+
+    }
+
+
+    /* *  Placeholder contrast * */
+    ::-webkit-input-placeholder {
+        color: #666;
+    }
+
+    ::-moz-placeholder {
+        color: #666;
+    }
+
+    :-ms-input-placeholder {
+        color: #666;
+    }
+
+    :-moz-placeholder {
+        color: #666;
+    }
+
+    .card {
+        width: 80%;
+        margin: auto;
+        box-shadow: 0 1px 1px grey;
+    }
+
+    .about {
+        width: 73%;
+        height: 29px;
+        border: 1px solid black;
+        border-radius: 5px;
+    }
+
+    .buddy_frame {
+        width: 59%;
+        height: 399px;
+        margin: auto;
+        border: 1px solid rgb(228, 228, 228);
+        border: 5px solid rgb(64, 11, 44);
+    }
+
+    .profile_picture {
+        width: 19%;
+        height: 173px;
+        border: none;
+        margin: auto;
+        margin-top: 173px;
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+
+    .status_frame {
+        width: 73%;
+        margin: auto;
+    }
+
+    @media screen and (max-width: 479px) {
+        .buddy_frame {
+            width: 97%;
+            height: 199px;
+            margin: auto;
+            border: 1px solid rgb(228, 228, 228);
+        }
+
+        .profile_picture {
+            width: 73%;
+            height: 173px;
+            border: none;
+            margin: auto;
+            margin-top: 0px;
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+
+        .card {
+            width: 97%;
+        }
+
+        .status_frame {
+            width: 100%;
+        }
+
+        .about {
+            display: none;
+        }
+
+        
+    }
+</style>
+
+
+
+
+
+{% if edit_profile.photo %}
+
+
+
+<style>
+    .profile_picture {
+        background-image: url('{{ edit_profile.photo.url }}');
+    }
+</style>
+
+
+{% else %}
+
+
+<style>
+    .profile_picture {
+        background-image: url('static/img/default_profile_picture.png');
+    }
+</style>
+{% endif %}
+
+
+
+
+<div class="buddy_frame">
+
+
+    <div class="profile_picture">
+    </div>
+    <div style="text-align: center;">
+        <h5><b>{{ edit_profile.name }}</b></h5>
+        <a href="{% url 'user_chat' edit_profile.pk %}"><button
+                style="background-color: rgb(64, 11, 44);color: white;width: 100%;border: none;border-radius: 5px;height: 29px;margin-top: 19px;">Message</button></a>
+    </div>
+
+</div>
+
+<div class="status_frame">
+    <br>
+    <br>
+    <br>
+
+    {% for post in status %}
+
+    {% if post.username == edit_profile.username %}
+
+    <!-- Post -->
+    <div class="card">
+        <div class="card-body">
+            <p class="card-title"><b>{{ post.name }}</b>
+                <i style="float: right;" class="fas fa-ellipsis-h"></i>
+                <br>
+                <small style="font-size: small;" class="text-muted">{{ post.date }}</small>
+            </p>
+
+            {% if post.status|length < 50 %} <p class="card-text">{{ post.status }}</p>
+                {% else %}
+                <p class="card-text">{{ post.status|safe|truncatewords:"50" }} <a href="">Continue</a></p>
+
+                {% endif %}
+
+
+
+
+
+
+
+
+        </div>
+
+        {% if post.photo %}
+
+
+
+        <img src="{{ post.photo.url }}" class="card-img-bottom" alt="">
+        {% endif %}
+        <hr>
+        <div style="width: 100%;margin: auto;text-align: center;">
+
+
+            <!-- comments -->
+
+            <div class="collapse" id="collapseExample{{ post.pk }}">
+                <div style="border: none;box-shadow: none;" class="card card-body">
+                    <form action="{% url 'comment_form' %}" method="POST">
+                        {% csrf_token %}
+                        <input name="username" type="hidden" value="{{ user.username }}">
+                        <input name="name" type="hidden" value="{{ user.get_full_name }}">
+                        <input name="post_id" type="hidden" value="{{ post.pk }}">
+                        <input style="width: 73%;height:39px;border: 1px solid rgb(199, 199, 199);margin: auto;"
+                            name="comment" placeholder="Please Comment">
+                        <button
+                            style="width: 19%;margin: auto;border: none;border-radius: 19px;margin-top: 19px;">Ans</button>
+                    </form>
+
+                    <div style="width: 100%; margin: auto;height: auto;">
+                        <br>
+
+
+                        {% for user_comment in comment reversed %}
+                        {% if post.pk == user_comment.post_id %}
+
+
+
+
+
+
+                        <div style="width: 73%;text-align: left;padding-left: 29px;">
+                            <b>{{ user_comment.name }}</b>
+                            <br>
+                            <small class="text-muted">{{ user_comment.date }}</small>
+                            <br>
+                            <br>
+                            <p>{{ user_comment.comment }}</p>
+                        </div>
+                        <br>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+
+            </div>
+
+            <button style="border: none;width: 39%;">View</button>
+            <button style="border: none;border-radius: 5px;width: 39%;" data-bs-toggle="collapse"
+                data-bs-target="#collapseExample{{ post.pk }}" aria-expanded="false"
+                aria-controls="collapseExample">Comment</button></a>
+
+            <!-- comments -->
+        </div>
+    </div>
+
+    <!-- Post -->
+    <br>
+    {% endif %}
+    {% endfor %}
+</div>
+{% endblock content %}

@@ -1,0 +1,451 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+
+
+<!-------- home section starts --------->
+<section class="container pt-xl-5">
+
+    {% for message in messages %}
+    <div class="alert alert- {{ message.tags }} alert-dismissible fade show" role="alert">
+        <strong>Warning : </strong> {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    <div class="row">
+
+        <!-- home left -->
+        <div class="col-md-6 col-12 text-center text-xl-start">
+            <h1 class="source_sans_pro_font home_left_header pt-5 pt-xl-0">Are you forgetting?</h1>
+            <p class="source_sans_pro_font home_left_desc ">
+                Don't worry we're here to provide you best solution. We're made this system where you can check out
+                your problem without a doctor's help. Our system can be able to predict Alzhiemer risk and you can
+                find the doctor you require.
+            </p>
+            <button class="btn learn_more_btn" data-bs-toggle="modal" data-bs-target="#learnMoreModal">Learn
+                More</button>
+        </div>
+
+        <!--- learn more modal -->
+        <div class="modal fade" id="learnMoreModal" tabindex="-1" aria-labelledby="learnMoreModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable">
+                <div class="modal-content">
+
+                    <!-- modal header -->
+                    <div class="modal-header pt_sans_narrow_font"
+                        style="background-color: rgb(64, 11, 44); color: white;">
+                        <h5 class="modal-title" id="learnMoreModalLabel">Learn More</h5>
+
+                        <!-- modal close button-->
+                        <button type="button" class="btn modal_close_btn rounded-circle" data-bs-dismiss="modal"
+                            aria-label="Close">
+                            <i class="fas fa-times"></i>
+                        </button>
+
+                    </div>
+                    <!-- modal body -->
+                    <div class="modal-body">
+
+                        <p class="league_spartan_font learn_more">
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus laudantium rem
+                            aliquam esse aspernatur perferendis alias voluptatum, exercitationem quasi inventore
+                            iure facilis, nisi beatae animi porro eum quo nesciunt cum!
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus laudantium rem
+                            aliquam esse aspernatur perferendis alias voluptatum, exercitationem quasi inventore
+                            iure facilis, nisi beatae animi porro eum quo nesciunt cum!Lorem ipsum dolor sit amet
+                            consectetur, adipisicing elit. Voluptatibus laudantium rem aliquam esse aspernatur
+                            perferendis alias voluptatum, exercitationem quasi inventore iure facilis, nisi beatae
+                            animi porro eum quo nesciunt cum!Lorem ipsum dolor sit amet consectetur, adipisicing
+                            elit. Voluptatibus laudantium rem aliquam esse aspernatur perferendis alias voluptatum,
+                            exercitationem quasi inventore iure facilis, nisi beatae animi porro eum quo nesciunt
+                            cum!Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus laudantium
+                            rem aliquam esse aspernatur perferendis alias voluptatum, exercitationem quasi inventore
+                            iure facilis, nisi beatae animi porro eum quo nesciunt cum!Lorem ipsum dolor sit amet
+                            consectetur, adipisicing elit. Voluptatibus laudantium rem aliquam esse aspernatur
+                            perferendis alias voluptatum, exercitationem quasi inventore iure facilis, nisi beatae
+                            animi porro eum quo nesciunt cum!
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- home right -->
+        <div class="col-md-6 col-12 d-flex justify-content-lg-end justify-content-center">
+            <img class="gif" src="static/img/1.gif" width="29%" class="d-block pt-5 pt-xl-0">
+        </div>
+    </div>
+    <div>
+    </div>
+</section>
+<!----- home section ends ------>
+<br>
+<br>
+<section class="container pt-xl-5">
+    <div class="row">
+        <div class="col-md-12 col-12 text-center text-xl-start purple">
+
+
+
+            <span id="text1" class="text_1"><b></b></span>
+            <span id="text2" class="text_1"><b></b></span>
+
+            <svg id="filters">
+                <defs>
+                    <filter id="threshold">
+                        <feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0
+                  0 1 0 0 0
+                  0 0 1 0 0
+                  0 0 0 255 -140" />
+                    </filter>
+                </defs>
+            </svg>
+
+
+        </div>
+    </div>
+</section>
+
+<!--------- demo sections(2nd section) starts --------->
+<section class="container p-5" id="demo_sections">
+    <!-- <div class="d-flex justify-content-center pt-xl-5"> -->
+    <div style="width: auto;height: auto;">
+        <div class="swatch" style="margin-top: -129px;">
+            <div>
+                <h5 style="color: white;"><b>A</b></h5>
+                <h5 style="color: white;"><b>L</b></h5>
+                <h5 style="color: white;"><b>Z</b></h5>
+            </div>
+            <div>
+                <h5 style="color: white;"><b>H</b></h5>
+                <h5 style="color: white;"><b>E</b></h5>
+                <h5 style="color: white;"><b>I</b></h5>
+            </div>
+            <div>
+                <h5 style="color: white;"><b>M</b></h5>
+                <h5 style="color: white;"><b>E</b></h5>
+                <h5 style="color: white;"><b>R</b></h5>
+            </div>
+            <div>
+                <h5 style="color: white;"><b>P</b></h5>
+                <h5 style="color: white;"><b>R</b></h5>
+                <h5 style="color: white;"><b>E</b></h5>
+            </div>
+            <div>
+                <h5 style="color: white;"><b>D</b></h5>
+                <h5 style="color: white;"><b>I</b></h5>
+                <h5 style="color: white;"><b>C</b></h5>
+            </div>
+            <div>
+                <h5 style="color: white;"><b>T</b></h5>
+                <h5 style="color: white;"><b>I</b></h5>
+                <h5 style="color: white;"><b>O</b></h5>
+                <h5 style="color: white;"><b>N</b></h5>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!--- search disieas without image modal starts -->
+    <div class="modal fade" id="searchDisieasOutModal" tabindex="-1" aria-labelledby="searchDisieaseOutModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+
+                <!-- modal header -->
+                <div class="modal-header pt_sans_narrow_font" style="background-color: rgb(64, 11, 44); color: white;">
+                    <h5 class="modal-title" id="searchDisieaseOutModalLabel">Check Your Alzheimer</h5>
+
+                    <!-- modal close button-->
+                    <button type="button" class="btn modal_close_btn rounded-circle" data-bs-dismiss="modal"
+                        aria-label="Close">
+                        <i class="fas fa-times"></i>
+                    </button>
+
+                </div>
+                <!-- modal body -->
+                <div class="modal-body">
+
+                    <!---- singin form ---->
+                    <form class="pt_sans_narrow_font" action="{% url 'alzheimer_test' %}" method="GET">
+                        {% csrf_token %}
+
+                        <div class="col-md-6 my-3 form-group">
+                            <div class="question">
+                                <h5 class="purple-color font-700">Please Select Your Gender ?</h5>
+                                <div class="answer d-flex gap-5">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio"
+                                            name="gender" id="exampleRadios1" value=1 checked>
+                                        <label class="form-check-label" for="exampleRadios1">
+                                            Male
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio"
+                                            name="gender" id="exampleRadios2" value=0>
+                                        <label class="form-check-label" for="exampleRadios2">
+                                            Female
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio"
+                                            name="gender" id="exampleRadios2" value=0>
+                                        <label class="form-check-label" for="exampleRadios2">
+                                            Others
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 my-3 form-group">
+                            <div class="question">
+                                <h5 class="purple-color font-700">Input Your Age : </h5>
+                                <div class="answer d-flex gap-5">
+
+                                    <div class="answer d-flex justify-content-start">
+                                        <input type="text" name="age" class="form-control w-50" value= 0>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 my-3 form-group">
+                            <div class="question">
+                                <h5 class="purple-color font-700">Input Your Education Level : </h5>
+                                <div class="answer d-block gap-5">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="ses" id="exampleRadios1"
+                                            value=0 checked>
+                                        <label class="form-check-label" for="exampleRadios1">
+                                            Uneducated
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="ses" id="exampleRadios2"
+                                            value=3>
+                                        <label class="form-check-label" for="exampleRadios2">
+                                            Primary Education
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="ses" id="exampleRadios2"
+                                            value=4>
+                                        <label class="form-check-label" for="exampleRadios2">
+                                            Class 8 Passed
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="ses" id="exampleRadios2"
+                                            value=5>
+                                        <label class="form-check-label" for="exampleRadios2">
+                                            Secondary School Certificate (SSC)
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="ses" id="exampleRadios2"
+                                            value=6>
+                                        <label class="form-check-label" for="exampleRadios2">
+                                            Higher Secondary Certificate (HSC)
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="ses" id="exampleRadios2"
+                                            value=7>
+                                        <label class="form-check-label" for="exampleRadios2">
+                                            Bachelor/Honors
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="ses" id="exampleRadios2"
+                                            value=8>
+                                        <label class="form-check-label" for="exampleRadios2">
+                                            Masters
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 my-3 form-group">
+                            <div class="question">
+                                <h5 class="purple-color font-700">Input Your Socioeconomic Status : </h5>
+                                <div class="answer d-block gap-5">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="el" id="exampleRadios1"
+                                            value=1 checked>
+                                        <label class="form-check-label" for="exampleRadios1">
+                                            Low Class
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="el" id="exampleRadios2"
+                                            value=2>
+                                        <label class="form-check-label" for="exampleRadios2">
+                                            Middle Class
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="el" id="exampleRadios2"
+                                            value=3>
+                                        <label class="form-check-label" for="exampleRadios2">
+                                            High Class
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 my-3 form-group">
+                            <div class="question">
+                                <h5 class="purple-color font-700">Input Your Mini Mental State Examination : </h5>
+                                <p>Wanna Know Your Mini Mental Health Status Score ? <a href="{% url 'status' %}">Click Here</a></p>
+                                <div class="answer d-flex gap-5">
+                                    <div class="answer d-flex justify-content-start">
+                                        <input type="text" name="mms" class="form-control w-50" value= 0 >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 my-3 form-group">
+                            <div class="question">
+                                <h5 class="purple-color font-700">Input Your Clinical Dementia Rating : </h5>
+                                <div class="answer d-block gap-5">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="cd" id="exampleRadios1"
+                                            value=0 checked>
+                                        <label class="form-check-label" for="exampleRadios1">
+                                            None
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="cd" id="exampleRadios2"
+                                            value=0.5>
+                                        <label class="form-check-label" for="exampleRadios2">
+                                            Very Mild
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="cd" id="exampleRadios2"
+                                            value=1>
+                                        <label class="form-check-label" for="exampleRadios2">
+                                            Mild
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="cd" id="exampleRadios2"
+                                            value=2>
+                                        <label class="form-check-label" for="exampleRadios2">
+                                            Moderate
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="cd" id="exampleRadios2"
+                                            value=3>
+                                        <label class="form-check-label" for="exampleRadios2">
+                                            Severe
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 my-3 form-group">
+                            <div class="question">
+                                <h5 class="purple-color font-700">Input Your Estimated Total Intracranial Volume :
+                                </h5>
+                                <div class="answer d-block gap-5">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="eti" id="exampleRadios1"
+                                            value=1300 checked>
+                                        <label class="form-check-label" for="exampleRadios1">
+                                            1000 - 1300 (Low Range)
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="eti" id="exampleRadios2"
+                                            value=1500>
+                                        <label class="form-check-label" for="exampleRadios2">
+                                            1301 - 1500 (Low Range)
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="eti" id="exampleRadios2"
+                                            value=1700>
+                                        <label class="form-check-label" for="exampleRadios2">
+                                            1501 - 1700 (Medium Range)
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="eti" id="exampleRadios2"
+                                            value=1800>
+                                        <label class="form-check-label" for="exampleRadios2">
+                                            1700 - 1800 (High Range)
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="eti" id="exampleRadios2"
+                                            value=1900>
+                                        <label class="form-check-label" for="exampleRadios2">
+                                            1801 - 2000 (High Range)
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 my-3 form-group">
+                            <div class="question">
+                                <h5 class="purple-color font-700">Input Your Normalize Whole Brain Volume : </h5>
+                                <p>You Have To Check This Into Any Medical Center. Range (0.5 - 1)</p>
+                                <div class="answer d-flex gap-5">
+                                    <div class="answer d-flex justify-content-start">
+                                        <input type="text" name="nwb" class="form-control w-50" value= 0 >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 my-3 form-group">
+                            <div class="question">
+                                <h5 class="purple-color font-700">Input Your Atlas scaling factor : </h5>
+                                <p>You Have To Check This Into Any Medical Center. Range (0.1 - 1.7)</p>
+                                <div class="answer d-flex gap-5">
+                                    <div class="answer d-flex justify-content-start">
+                                        <input type="text" name="asf" class="form-control w-50" value= 0 >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="search_disiease_modal_btn btn col-12" id="submit">Check <i
+                                class="fas fa-spinner"></i></button>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>
+<section class="container pt-5" id="developer" style="margin-top: 129px;">
+    <div class="d-flex justify-content-center">
+        <p><button class="btn d-block search_disies_btn ms-2" data-bs-toggle="modal"
+                data-bs-target="#searchDisieasOutModal">Check Your Alzheimer</button></p>
+
+    </div>
+
+</section>
+{% endblock content %}

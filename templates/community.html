@@ -1,0 +1,482 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+
+<style>
+    .box_shadow {
+        background-image: linear-gradient(to right, #ffffb3, #ffe6e6);
+        height: 39px;
+
+
+    }
+
+
+
+    .image_div {
+        margin-left: 73px;
+        width: 500px;
+    }
+
+    .image_div>img {
+        width: 500px;
+        border-radius: 19px;
+        clear: both;
+        float: left;
+    }
+
+    .text_div {
+        float: left;
+        margin-left: 29px;
+        width: 700px;
+    }
+
+    .text_div_2 {
+        float: left;
+        margin-right: 73px;
+    }
+
+    .text_style {
+        font-family: 'Winter', sans-serif;
+        font-size: 73px;
+        font-weight: lighter;
+    }
+
+    .button_style {
+        background-color: black;
+        border-radius: 19px;
+        color: white;
+        padding: 19px;
+        border: none;
+        font-weight: lighter;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        width: 473px;
+        text-align: left;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        transition: 0.3s ease;
+
+    }
+
+    .button_style:hover {
+        width: 573px;
+        animation: chan-sh 6s ease infinite;
+        transform: translateX(0);
+    }
+
+    @import url('http://fonts.cdnfonts.com/css/romantic');
+    @import url('http://fonts.cdnfonts.com/css/valeerie-morrie');
+
+
+
+    .profile {
+        width: 73%;
+        margin: auto;
+        height: 500px;
+        box-shadow: 0 1px 1px grey;
+        background-color: white;
+        overflow: hidden;
+        border-radius: 5px;
+    }
+
+    .profile_pic {
+        width: 25%;
+        margin: auto;
+        height: 273px;
+
+
+    }
+
+    .profile_pic>img {
+        border-radius: 50%;
+    }
+
+    .button {
+        margin-left: 29px;
+        margin-right: 29px;
+        border: none;
+        border-radius: 5px;
+        background-color: white;
+        color: rgb(255, 0, 234);
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+
+        font-family: sans-serif;
+    }
+
+
+    /* * Post widget * */
+
+    input[type="file"] {
+        display: none;
+    }
+
+    ul {
+        list-style-type: none;
+    }
+
+    .btn {
+        padding: .4em 1em;
+
+        background-color: transparent;
+        color: #6b7270;
+
+        border: none;
+        cursor: pointer;
+    }
+
+    .widget-post {
+        width: 73%;
+        min-height: 100px;
+        height: auto;
+        border-radius: 5px;
+        border: 1px solid #eaeaea;
+        box-shadow: 0 1px 1px grey;
+
+        background-color: #fff;
+
+        margin: auto;
+        overflow: hidden;
+    }
+
+    .widget-post__header {
+        padding: .2em .5em;
+
+        background-color: #eaeaea;
+        color: #3f5563;
+    }
+
+    .widget-post__title {
+        font-size: 18px;
+    }
+
+    .widget-post__content {
+        width: 100%;
+        height: 50%;
+    }
+
+    .widget-post__textarea {
+        width: 100%;
+        height: 100%;
+        padding: .5em;
+
+        border: none;
+        resize: none;
+    }
+
+    .widget-post__textarea:focus {
+        outline: none;
+    }
+
+    .widget-post__options {
+        padding: .5em;
+    }
+
+    .widget-post___input {
+        display: inline-block;
+
+        width: 24%;
+        padding: .2em .5em;
+
+        border: 1px solid #eaeaea;
+        border-radius: 1.5em;
+    }
+
+    .post-actions__label {
+        cursor: pointer;
+    }
+
+    .widget-post__actions {
+        width: 100%;
+        padding: .5em;
+    }
+
+    .post--actions {
+        position: relative;
+        padding: .5em;
+
+        background-color: #f5f5f5;
+        color: #a2a6a7;
+    }
+
+    .post-actions__attachments {
+        display: inline-block;
+        width: 60%;
+    }
+
+    .attachments--btn {
+        background-color: #eaeaea;
+        color: #007582;
+
+        border-radius: 1.5em;
+    }
+
+    .post-actions__widget {
+        display: inline-block;
+        width: 38%;
+        text-align: right;
+    }
+
+    .post-actions__publish {
+        width: 120px;
+
+        background-color: #008391;
+        color: #fff;
+
+        border-radius: 1.5em;
+    }
+
+    .scroller::-webkit-scrollbar {
+        display: none;
+    }
+
+    .is--hidden {
+        display: none;
+    }
+
+    .sr-only {
+        width: 1px;
+        height: 1px;
+
+        clip: rect(1px, 1px, 1px, 1px);
+        -webkit-clip-path: inset(50%);
+        clip-path: inset(50%);
+
+        overflow: hidden;
+        white-space: nowrap;
+
+        position: absolute;
+        top: 0;
+
+    }
+
+
+    /* *  Placeholder contrast * */
+    ::-webkit-input-placeholder {
+        color: #666;
+    }
+
+    ::-moz-placeholder {
+        color: #666;
+    }
+
+    :-ms-input-placeholder {
+        color: #666;
+    }
+
+    :-moz-placeholder {
+        color: #666;
+    }
+
+    .card {
+        width: 73%;
+        margin: auto;
+        box-shadow: 0 1px 1px grey;
+    }
+
+    .about {
+        width: 73%;
+        height: 29px;
+        border: 1px solid black;
+        border-radius: 5px;
+    }
+
+    .comment_button {
+        border: none;
+        border-radius: 5px;
+        width: 33%;
+    }
+
+    @media screen and (max-width:479px) {
+        .widget-post {
+            width: 97%;
+        }
+
+        .card {
+            width: 97%;
+        }
+
+        .comment_button {
+            width: 29%;
+            font-size: 13px;
+        }
+
+        .about {
+            display: none;
+        }
+    }
+</style>
+
+
+
+<!-- Post Box -->
+<div style="margin-top: 19px;" class="widget-post" aria-labelledby="post-header-title">
+    <div class="widget-post__header">
+        <h2 class="widget-post__title" id="post-header-title">
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+
+        </h2>
+    </div>
+    <form action=" {% url 'status_form' %}" method="POST" id="widget-form" class="widget-post__form" name="form"
+        aria-label="post widget" enctype="multipart/form-data">
+
+
+        <div style="text-align:center;">
+            {% for message in messages %}
+
+
+            <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+
+
+
+
+
+        {% csrf_token %}
+        <div class="widget-post__content">
+            <label for="post-content" class="sr-only">Share</label>
+            <input name="name" type="hidden" value="{{ user.get_full_name }}">
+            <input name="username" type="hidden" value="{{ user.username }}">
+            <textarea name="status" id="post-content" class="widget-post__textarea scroller"
+                placeholder="What's on your mind ?"></textarea>
+        </div>
+        <div class="widget-post__options is--hidden" id="stock-options">
+        </div>
+        <div class="widget-post__actions post--actions">
+            <div class="post-actions__attachments">
+                <button type="button" class="btn post-actions__upload attachments--btn">
+                    <label style="color: rgb(64, 11, 44);" for="upload-image" class="post-actions__label">
+                        <i class="fa fa-upload" aria-hidden="true"></i>
+                        upload image
+                    </label>
+                </button>
+                <input name="photo" type="file" id="upload-image" accept="image/*" multiple>
+            </div>
+            <div class="post-actions__widget">
+                <button type="submit" style="background-color: rgb(64, 11, 44);"
+                    class="btn post-actions__publish">publish</button>
+            </div>
+        </div>
+    </form>
+</div>
+<br>
+<!-- Post Box -->
+
+
+
+{% for post in object_list %}
+
+
+
+
+
+
+<!-- Post -->
+<div class="card">
+    <div class="card-body">
+        <p class="card-title"><b>{{ post.name }}</b>
+            <i style="float: right;" class="fas fa-ellipsis-h"></i>
+            <br>
+            <small style="font-size: small;" class="text-muted">{{ post.date }}</small>
+        </p>
+
+        {% if post.status|length < 50 %} <p class="card-text">{{ post.status }}</p>
+            {% else %}
+            <p class="card-text">{{ post.status|safe|truncatewords:"50" }} <a href="">Continue</a></p>
+
+            {% endif %}
+
+
+
+
+
+
+
+
+    </div>
+
+    {% if post.photo %}
+
+
+
+    <img src="{{ post.photo.url }}" class="card-img-bottom" alt="">
+    {% endif %}
+    <hr>
+    <div style="width: 100%;margin: auto;text-align: center;">
+
+
+        <!-- comments -->
+
+        <div class="collapse" id="collapseExample{{ post.pk }}">
+            <div style="border: none;box-shadow: none;" class="card card-body">
+                <form action="{% url 'comment_form' %}" method="POST">
+                    {% csrf_token %}
+                    <input name="username" type="hidden" value="{{ user.username }}">
+                    <input name="name" type="hidden" value="{{ user.get_full_name }}">
+                    <input name="post_id" type="hidden" value="{{ post.pk }}">
+                    <input style="width: 73%;height:39px;border: 1px solid rgb(199, 199, 199);margin: auto;"
+                        name="comment" placeholder="Please Comment">
+                    <button
+                        style="width: 19%;margin: auto;border: none;border-radius: 19px;margin-top: 19px;">ans</button>
+                </form>
+
+                <div style="width: 100%; margin: auto;height: auto;">
+                    <br>
+
+
+                    {% for user_comment in comment reversed %}
+                    {% if post.pk == user_comment.post_id %}
+
+
+
+
+
+
+                    <div style="width: 73%;text-align: left;padding-left: 29px;">
+                        <b>{{ user_comment.name }}</b>
+                        <br>
+                        <small class="text-muted">{{ user_comment.date }}</small>
+                        <br>
+                        <br>
+                        <p>{{ user_comment.comment }}</p>
+                    </div>
+                    <br>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+
+        </div>
+
+        <button class="comment_button">View</button>
+        <button class="comment_button" data-bs-toggle="collapse" data-bs-target="#collapseExample{{ post.pk }}"
+            aria-expanded="false" aria-controls="collapseExample">Comment</button></a>
+        <button class="comment_button">Report</button></a>
+        <!-- comments -->
+    </div>
+</div>
+
+<!-- Post -->
+<br>
+
+{% endfor %}
+
+
+
+</div>
+
+
+
+
+{% endblock %}
